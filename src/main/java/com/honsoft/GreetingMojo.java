@@ -31,8 +31,14 @@ public class GreetingMojo extends AbstractMojo
     public void execute() throws MojoExecutionException
     {
         getLog().info(greeting );
+        //시스템 환경 변수
+        Map<String,String> systemEnvs = System.getenv();
+        for (String key : systemEnvs.keySet()){
+			getLog().info(key+" : "+systemEnvs.get(key));
+		}
         
-        Map<String,Object> envs = new HashMap<>();
+        //자바 환경 변수
+        Map<String,Object> envs = new HashMap<String, Object>();
 		envs.put("file.separator", System.getProperty("file.separator"));
 		envs.put("java.class.path", System.getProperty("java.class.path"));
 		envs.put("java.home", System.getProperty("java.home"));

@@ -3,45 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.honsoft</groupId>
 	<artifactId>hello-maven-plugin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.7</version>
 
 	<packaging>maven-plugin</packaging>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<name>Central Repository</name>
-			<url>https://repo.maven.apache.org/maven2</url>
-			<layout>default</layout>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<releases>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
-
-	<repositories>
-		<repository>
-			<id>central</id>
-			<name>Central Repository</name>
-			<url>https://repo.maven.apache.org/maven2</url>
-			<layout>default</layout>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
-	<prerequisites>
-		<maven>3.5</maven>
-	</prerequisites>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.plugin.skipErrorNoDescriptorsFound>true</maven.plugin.skipErrorNoDescriptorsFound>
 	</properties>
 
@@ -73,93 +43,18 @@
 			<plugin>
 				<groupId>com.honsoft</groupId>
 				<artifactId>hello-maven-plugin</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-				<configuration>
-					<greeting>Welcome</greeting>
-					<myArray>
-						<param>value1</param>
-						<param>value2</param>
-					</myArray>
-				</configuration>
-
+				<version>1.7</version>
 				<executions>
 					<execution>
 						<id>sayhi-1</id>
-						<phase>resources</phase>
-						<goals>
-							<goal>sayhi</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>sayhi-2</id>
 						<phase>compile</phase>
-						<goals>
-							<goal>sayhi</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>sayhi-3</id>
-						<phase>install</phase>
 						<goals>
 							<goal>sayhi</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-			
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-plugin-plugin
-										</artifactId>
-										<versionRange>
-											[3.2,)
-										</versionRange>
-										<goals>
-											<goal>descriptor</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>com.honsoft</groupId>
-										<artifactId>
-											hello-maven-plugin
-										</artifactId>
-										<versionRange>
-											[0.0.1-SNAPSHOT,)
-										</versionRange>
-										<goals>
-											<goal>sayhi</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 
 </project>
